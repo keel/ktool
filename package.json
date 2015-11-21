@@ -1,0 +1,25 @@
+{
+  "name": "ktool",
+  "version": "0.1.1",
+  "description": "A tool set for nodejs. Include string format, time, random...",
+  "main": "lib/ktool.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/keel/ktool.git"
+  },
+  "keywords": [
+    "tool",
+    "string",
+    "time",
+    "random"
+  ],
+  "author": "keel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keel/ktool/issues"
+  },
+  "homepage": "https://github.com/keel/ktool#readme"
+}
