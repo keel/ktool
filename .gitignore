@@ -6,4 +6,5 @@ test.js
 node_modules/
 temp/
 public/
+dist/
 .deploy*/
