@@ -1,6 +1,6 @@
 {
   "name": "ktool",
-  "version": "0.2.17",
+  "version": "0.2.19",
   "description": "A tool set for nodejs. Include string format, time, net, random...",
   "main": "lib/ktool.js",
   "scripts": {
@@ -11,9 +11,9 @@
     "url": "git+ssh://git@github.com/keel/ktool.git"
   },
   "dependencies": {
-    "cck": "^1.0.9",
+    "cck": "^1.0.10",
     "vlog": "^0.2.5",
-    "aes-cross": "^1.0.8"
+    "aes-cross": "^1.0.9"
   },
   "devDependencies": {
     "chai": "^2.3.0",
