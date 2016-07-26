@@ -16,7 +16,7 @@ describe('kconfig', function() {
       expect('ktool').to.be.eql(re.project);
       expect(6379).to.be.eql(re.redisPort);
       expect('192.168.0.19').to.be.eql(re.redisIP);
-      expect(JSON.stringify(re)).to.be.eql(process.env.KTOOL_CONFIG_V);
+      expect(JSON.stringify(re)).to.be.eql(process.env.KEEL_CONFIG_V);
     });
     it('should read product OK', function() {
       process.env.KTOOL_CONFIG_K = 'product';
@@ -25,7 +25,7 @@ describe('kconfig', function() {
       expect('ktool').to.be.eql(re.project);
       expect(16379).to.be.eql(re.redisPort);
       expect('10.1.1.111').to.be.eql(re.redisIP);
-      expect(JSON.stringify(re)).to.be.eql(process.env.KTOOL_CONFIG_V);
+      expect(JSON.stringify(re)).to.be.eql(process.env.KEEL_CONFIG_V);
     });
     it('should be failed by config file', function() {
       var re = kconfig.readConfig(configFilePath + 'configxxx.json');
