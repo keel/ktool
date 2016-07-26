@@ -7,6 +7,9 @@ var kconfig = require('../lib/kconfig');
 
 describe('kconfig', function() {
   var configFilePath = 'test/';
+  beforeEach(function() {
+    delete process.env['KEEL_CONFIG_V'];
+  });
 
   describe('#readConfig', function() {
     it('should read dev OK', function() {
