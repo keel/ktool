@@ -54,36 +54,47 @@ describe('kconfig', function() {
 
   describe('#getConfig', function() {
 
-    var kconfiger = kconfig.kconfig(configFilePath + 'config.json');
+    kconfig.init(configFilePath + 'config.json');
 
     it('should getConfig dev OK', function() {
       // process.env.KTOOL_CONFIG_K = 'dev';
-      kconfiger.resetReadTimes();
-      var re = kconfiger.getConfig();
+      kconfig.resetReadTimes();
+      var re = kconfig.getConfig();
       expect(re).not.to.be.null;
       expect(1).to.be.eql(re.ver);
       expect('ktool').to.be.eql(re.project);
       expect(6379).to.be.eql(re.redisPort);
       expect('192.168.0.19').to.be.eql(re.redisIP);
-      expect(re.__readTimes).to.be.eql(1);
+      expect(0).to.be.eql(re.__readTimes);
     });
 
     it('should read file only once', function() {
       // process.env.KTOOL_CONFIG_K = 'dev';
-      kconfiger.resetReadTimes();
-      expect(1).to.be.eql(kconfiger.getConfig().__readTimes);
-      expect(1).to.be.eql(kconfiger.getConfig().__readTimes);
-      expect(1).to.be.eql(kconfiger.getConfig().__readTimes);
-      expect(1).to.be.eql(kconfiger.getConfig().__readTimes);
+      kconfig.resetReadTimes();
+      kconfig.getConfig(true);
+      expect(1).to.be.eql(kconfig.getConfig().__readTimes);
+      expect(1).to.be.eql(kconfig.getConfig().__readTimes);
+      expect(1).to.be.eql(kconfig.getConfig().__readTimes);
+      expect(1).to.be.eql(kconfig.getConfig().__readTimes);
     });
 
     it('should read file force when isForce is true', function() {
       // process.env.KTOOL_CONFIG_K = 'dev';
-      kconfiger.resetReadTimes();
-      expect(1).to.be.eql(kconfiger.getConfig(true).__readTimes);
-      expect(2).to.be.eql(kconfiger.getConfig(true).__readTimes);
-      expect(3).to.be.eql(kconfiger.getConfig(true).__readTimes);
-      expect(4).to.be.eql(kconfiger.getConfig(true).__readTimes);
+      kconfig.resetReadTimes();
+      expect(1).to.be.eql(kconfig.getConfig(true).__readTimes);
+      expect(2).to.be.eql(kconfig.getConfig(true).__readTimes);
+      expect(3).to.be.eql(kconfig.getConfig(true).__readTimes);
+      expect(4).to.be.eql(kconfig.getConfig(true).__readTimes);
+    });
+
+    it('should read file once when multi require', function() {
+      // process.env.KTOOL_CONFIG_K = 'dev';
+      require('../lib/kconfig').resetReadTimes();
+      require('../lib/kconfig').init(configFilePath + 'config.json', true);
+      expect(1).to.be.eql(require('../lib/kconfig').init(configFilePath + 'config.json').__readTimes);
+      expect(1).to.be.eql(require('../lib/kconfig').init(configFilePath + 'config.json').__readTimes);
+      expect(2).to.be.eql(require('../lib/kconfig').init(configFilePath + 'config.json', true).__readTimes);
+      expect(2).to.be.eql(require('../lib/kconfig').init(configFilePath + 'config.json').__readTimes);
     });
   });
 
