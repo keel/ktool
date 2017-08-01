@@ -1,11 +1,11 @@
 'use strict';
 
 
-var expect = require('chai').expect;
-var kconfig = require('../lib/kconfig');
+const expect = require('chai').expect;
+const kconfig = require('../lib/kconfig');
 
 
-var configFilePath = 'test/';
+const configFilePath = 'test/';
 
 describe('kconfig', function() {
   // beforeEach(function() {
@@ -15,7 +15,7 @@ describe('kconfig', function() {
   describe('#readConfig', function() {
     it('should read dev OK', function() {
       // process.env.KTOOL_CONFIG_K = 'dev';
-      var re = kconfig.readConfig(configFilePath + 'config.json');
+      const re = kconfig.readConfig(configFilePath + 'config.json');
       expect(1).to.be.eql(re.ver);
       expect('ktool').to.be.eql(re.project);
       expect(6379).to.be.eql(re.redisPort);
@@ -23,7 +23,7 @@ describe('kconfig', function() {
     });
     it('should read product OK', function() {
       process.env.KTOOL_CONFIG_K = 'product';
-      var re = kconfig.readConfig(configFilePath + 'config.json');
+      const re = kconfig.readConfig(configFilePath + 'config.json');
       expect(1).to.be.eql(re.ver);
       expect('ktool').to.be.eql(re.project);
       expect(16379).to.be.eql(re.redisPort);
@@ -31,23 +31,23 @@ describe('kconfig', function() {
       process.env.KTOOL_CONFIG_K = 'dev';
     });
     it('should be failed by config file', function() {
-      var re = kconfig.readConfig(configFilePath + 'configxxx.json');
+      const re = kconfig.readConfig(configFilePath + 'configxxx.json');
       expect(null).to.be.eql(re);
     });
     it('should be failed by json', function() {
-      var re = kconfig.readConfig(configFilePath + 'config1.json');
+      const re = kconfig.readConfig(configFilePath + 'config1.json');
       expect(null).to.be.eql(re);
     });
     it('should be failed by ver', function() {
-      var re = kconfig.readConfig(configFilePath + 'config2.json');
+      const re = kconfig.readConfig(configFilePath + 'config2.json');
       expect(null).to.be.eql(re);
     });
     it('should be failed by project', function() {
-      var re = kconfig.readConfig(configFilePath + 'config4.json');
+      const re = kconfig.readConfig(configFilePath + 'config4.json');
       expect(null).to.be.eql(re);
     });
     it('should be failed by empty config file', function() {
-      var re = kconfig.readConfig(configFilePath + 'config3.json');
+      const re = kconfig.readConfig(configFilePath + 'config3.json');
       expect(null).to.be.eql(re);
     });
   });
@@ -59,7 +59,7 @@ describe('kconfig', function() {
     it('should getConfig dev OK', function() {
       // process.env.KTOOL_CONFIG_K = 'dev';
       kconfig.resetReadTimes();
-      var re = kconfig.getConfig();
+      const re = kconfig.getConfig();
       expect(re).not.to.be.null;
       expect(1).to.be.eql(re.ver);
       expect('ktool').to.be.eql(re.project);
