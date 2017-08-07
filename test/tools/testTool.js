@@ -80,13 +80,12 @@ const testBatchSync = function(target, testFnName, testArr) {
         }
         const re = target[testFnName].apply(target, testObj.paras);
         expect(re).to.be.eql(testObj.expect);
-
       });
     });
   });
 };
 
-exports.testBatchSync = testBatchSync;
+// exports.testBatchSync = testBatchSync;
 exports.clone = clone;
 exports.createFile = createFile;
 exports.delFile = delFile;

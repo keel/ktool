@@ -1,0 +1,16 @@
+{
+    "ver": 1,
+    "project": "ktool",
+    "h$_key":"adfasdfadfdf",
+    "aaa":
+    {
+        "bbb":
+        {
+            "c": 23232,
+            "s$_aaa": "1234abcd"
+        },
+        "ccc": 42342,
+        "s$_fff": "654321fdsa",
+        "ddd": [3, 4, 5]
+    }
+}
