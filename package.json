@@ -1,6 +1,6 @@
 {
   "name": "ktool",
-  "version": "1.0.63",
+  "version": "1.0.64",
   "description": "A tool set for nodejs. Include string format, time, net, random...",
   "main": "lib/ktool.js",
   "scripts": {
@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "aes-cross": "^1.0.9",
-    "cck": "^1.0.25",
+    "cck": "^1.0.27",
     "chai": "^2.3.0",
     "vlog": "^0.2.12"
   },
   "devDependencies": {
-    "mocha": "^5.2.0",
+    "mocha": "^8.1.1",
     "rewire": "^2.5.2"
   },
   "keywords": [
