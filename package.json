@@ -1,6 +1,6 @@
 {
   "name": "ktool",
-  "version": "1.0.94",
+  "version": "1.0.95",
   "description": "A tool set for nodejs. Include string format, time, net, random...",
   "main": "lib/ktool.js",
   "scripts": {
